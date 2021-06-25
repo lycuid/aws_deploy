@@ -3,25 +3,25 @@ description: "deploy website to ec2 and assets to s3."
 author: 'LycuiD <lycuid@gmail.com>'
 inputs:
   AWS_ACCESS_KEY_ID:
-    description: "aws-cli requirement."
+    description: "required for s3 deploy."
     required: true
   AWS_SECRET_ACCESS_KEY:
-    description: "aws-cli requirement."
+    description: "required for s3 deploy."
     required: true
   TARGET:
     description: "target directory, to be published."
     required: true
-  S3_ASSETS_PATH:
+  S3_BUCKET_PATH:
     description: "Full s3 bucket path eg. s3://s3-bucket-name/sub/path"
     required: true
   EC2_SSH_KEY:
     description: "SSH key for remote ec2 server."
     required: true
-  EC2_ADDRESS:
-    description: "ssh address eg. 'username@host'."
+  EC2_REMOTE_ADDR:
+    description: "remote ssh address eg. 'username@host'."
     required: true
-  EC2_PATH:
-    description: "absolute path on remote machine, for deployment."
+  EC2_REMOTE_PATH:
+    description: "absolute path on remote machine (where to deploy)."
     required: true
 runs:
   using: "docker"
