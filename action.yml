@@ -8,6 +8,9 @@ inputs:
   AWS_SECRET_ACCESS_KEY:
     description: "required for s3 deploy."
     required: true
+  AWS_DEFAULT_REGION:
+    description: "optional."
+    required: false
   TARGET:
     description: "target directory, to be published."
     required: true
