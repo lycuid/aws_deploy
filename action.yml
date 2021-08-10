@@ -1,30 +1,21 @@
 name: "aws deploy composite step."
-description: "deploy website to ec2 and assets to s3."
+description: "My personal deploy action (ec2 and s3)."
 author: 'LycuiD <lycuid@gmail.com>'
 inputs:
-  AWS_ACCESS_KEY_ID:
-    description: "required for s3 deploy."
-    required: true
-  AWS_SECRET_ACCESS_KEY:
-    description: "required for s3 deploy."
-    required: true
-  AWS_DEFAULT_REGION:
-    description: "optional."
-    required: false
   TARGET:
     description: "target directory, to be published."
     required: true
-  S3_BUCKET_PATH:
-    description: "Full s3 bucket path eg. s3://s3-bucket-name/sub/path"
+  GPG_KEY:
+    description: "GPG key to decrypt secret env variables."
     required: true
-  EC2_SSH_KEY:
-    description: "SSH key for remote ec2 server."
-    required: true
-  EC2_REMOTE_ADDR:
-    description: "remote ssh address eg. 'username@host'."
+  GPG_PASSPHRASE:
+    description: "GPG Passphrase for the key."
     required: true
   EC2_REMOTE_PATH:
     description: "absolute path on remote machine (where to deploy)."
+    required: true
+  S3_BUCKET_PATH:
+    description: "Full s3 bucket path eg. s3://s3-bucket-name/sub/path"
     required: true
 runs:
   using: "docker"
