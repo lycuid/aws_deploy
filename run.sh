@@ -32,7 +32,7 @@ aws s3 sync $TARGET $S3_BUCKET_PATH \
   --delete --acl public-read
 
 echo "========== Deploying to EC2. =========="
-rsync -avP --delete-excluded \
+rsync -avP --delete \
   --include="*.html" --include="*.webmanifest" \
   --exclude="p" --include="*/" --exclude="*" \
   --rsync-path="mkdir -p $EC2_REMOTE_PATH && rsync" \
